@@ -1,0 +1,41 @@
+<form action="POST" #loginForm="ngForm" (ngSubmit)="logInput()">
+    <label for="#login-form__name"> </label>
+    <span class="label__span">Name:</span>
+    <input type="text" name="name" id="login-form__name" #name="ngModel" [(ngModel)]="user.name" minlength="5"
+        maxlength="25">
+    <span class="form__error" [hidden]="name.valid ||name.pristine">Invalid Name</span>
+
+    <label for="#login-form__surname"> </label>
+    <span class="label__span">Surame:</span>
+    <input type="text" name="surname" id="login-form__surname" #surname="ngModel" [(ngModel)]="user.surname"
+        minlength="5" maxlength="25">
+    <span class="form__error" [hidden]="surname.valid || surname.pristine">Invalid Surname</span>
+
+    <label for="#login-form__password"></label>
+    <span class="label__span">Password:</span>
+    <input type="password" name="password" id="#login-form__password" #password="ngModel" [(ngModel)]="user.password"
+        required>
+    <span class="form__error" [hidden]="password.valid || password.pristine">Invalid Password</span>
+
+
+    <label for="#login-form__email"></label>
+    <span class="label__span">Email:</span>
+    <input type="email" name="email" id="#login-form__email" #email="ngModel" [(ngModel)]="user.email" required>
+    <span class="form__error" [hidden]="email.valid || email.pristine">Invalid Email</span>
+
+
+    <label for="#login-form__age"></label>
+    <span class="label__span">Age:</span>
+    <input type="number" name="age" id="#login-form__age" #age="ngModel" [(ngModel)]="user.age" required
+        pattern="1[89]|[2-9]\d|10\d">
+    <span class="form__error" [hidden]="age.valid || age.pristine">Invalid age</span>
+
+    <label for="#login-form__dob"></label>
+    <span class="label__span">Age:</span>
+    <input type="date" name="date-of-birth" id="#login-form__dob" #dob="ngModel" [(ngModel)]="user.dob" required
+        pattern="\d{4}-\d{2}-\d{2}">
+    <span class="form__error" [hidden]="dob.valid || dob.pristine">Invalid Format</span>
+
+    <input type="submit" [disabled]="loginForm.invalid">
+
+</form>
